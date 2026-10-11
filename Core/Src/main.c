@@ -22,7 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "GpioConf.h"
+#include "sensor_task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,7 +51,10 @@ const osThreadAttr_t defaultTask_attributes = {
   .stack_size = 128 * 4
 };
 /* USER CODE BEGIN PV */
-
+TaskHandle_t vLed1TaskHandle = NULL;
+TaskHandle_t vLed2TaskHandle = NULL;
+SemaphoreHandle_t xSemLed1;
+SemaphoreHandle_t xSemLed2;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,7 +103,17 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  Initialize_GPIO();
 
+xSemLed1 = xSemaphoreCreateBinary();
+xSemLed2 = xSemaphoreCreateBinary();
+if(xSemLed2 != NULL && xSemLed1 != NULL)
+{
+	xSemaphoreGive(xSemLed1);
+	xTaskCreate(vLed1Task, "Task1", configMINIMAL_STACK_SIZE,NULL, 4, &vLed1TaskHandle);
+	xTaskCreate(vLed2Task, "Task1", configMINIMAL_STACK_SIZE,NULL, 4, &vLed2TaskHandle);
+	vTaskStartScheduler();
+}
   /* USER CODE END 2 */
 
   /* Init scheduler */
