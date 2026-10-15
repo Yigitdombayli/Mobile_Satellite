@@ -5,7 +5,10 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/ComminicationFunction.c \
+../Core/Src/CommunicationTask.c \
 ../Core/Src/GpioConf.c \
+../Core/Src/MPU6500.c \
 ../Core/Src/app_freertos.c \
 ../Core/Src/main.c \
 ../Core/Src/sensor_task.c \
@@ -17,7 +20,10 @@ C_SRCS += \
 ../Core/Src/system_stm32g0xx.c 
 
 OBJS += \
+./Core/Src/ComminicationFunction.o \
+./Core/Src/CommunicationTask.o \
 ./Core/Src/GpioConf.o \
+./Core/Src/MPU6500.o \
 ./Core/Src/app_freertos.o \
 ./Core/Src/main.o \
 ./Core/Src/sensor_task.o \
@@ -29,7 +35,10 @@ OBJS += \
 ./Core/Src/system_stm32g0xx.o 
 
 C_DEPS += \
+./Core/Src/ComminicationFunction.d \
+./Core/Src/CommunicationTask.d \
 ./Core/Src/GpioConf.d \
+./Core/Src/MPU6500.d \
 ./Core/Src/app_freertos.d \
 ./Core/Src/main.d \
 ./Core/Src/sensor_task.d \
@@ -48,7 +57,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/GpioConf.cyclo ./Core/Src/GpioConf.d ./Core/Src/GpioConf.o ./Core/Src/GpioConf.su ./Core/Src/app_freertos.cyclo ./Core/Src/app_freertos.d ./Core/Src/app_freertos.o ./Core/Src/app_freertos.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/sensor_task.cyclo ./Core/Src/sensor_task.d ./Core/Src/sensor_task.o ./Core/Src/sensor_task.su ./Core/Src/stm32g0xx_hal_msp.cyclo ./Core/Src/stm32g0xx_hal_msp.d ./Core/Src/stm32g0xx_hal_msp.o ./Core/Src/stm32g0xx_hal_msp.su ./Core/Src/stm32g0xx_hal_timebase_tim.cyclo ./Core/Src/stm32g0xx_hal_timebase_tim.d ./Core/Src/stm32g0xx_hal_timebase_tim.o ./Core/Src/stm32g0xx_hal_timebase_tim.su ./Core/Src/stm32g0xx_it.cyclo ./Core/Src/stm32g0xx_it.d ./Core/Src/stm32g0xx_it.o ./Core/Src/stm32g0xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g0xx.cyclo ./Core/Src/system_stm32g0xx.d ./Core/Src/system_stm32g0xx.o ./Core/Src/system_stm32g0xx.su
+	-$(RM) ./Core/Src/ComminicationFunction.cyclo ./Core/Src/ComminicationFunction.d ./Core/Src/ComminicationFunction.o ./Core/Src/ComminicationFunction.su ./Core/Src/CommunicationTask.cyclo ./Core/Src/CommunicationTask.d ./Core/Src/CommunicationTask.o ./Core/Src/CommunicationTask.su ./Core/Src/GpioConf.cyclo ./Core/Src/GpioConf.d ./Core/Src/GpioConf.o ./Core/Src/GpioConf.su ./Core/Src/MPU6500.cyclo ./Core/Src/MPU6500.d ./Core/Src/MPU6500.o ./Core/Src/MPU6500.su ./Core/Src/app_freertos.cyclo ./Core/Src/app_freertos.d ./Core/Src/app_freertos.o ./Core/Src/app_freertos.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/sensor_task.cyclo ./Core/Src/sensor_task.d ./Core/Src/sensor_task.o ./Core/Src/sensor_task.su ./Core/Src/stm32g0xx_hal_msp.cyclo ./Core/Src/stm32g0xx_hal_msp.d ./Core/Src/stm32g0xx_hal_msp.o ./Core/Src/stm32g0xx_hal_msp.su ./Core/Src/stm32g0xx_hal_timebase_tim.cyclo ./Core/Src/stm32g0xx_hal_timebase_tim.d ./Core/Src/stm32g0xx_hal_timebase_tim.o ./Core/Src/stm32g0xx_hal_timebase_tim.su ./Core/Src/stm32g0xx_it.cyclo ./Core/Src/stm32g0xx_it.d ./Core/Src/stm32g0xx_it.o ./Core/Src/stm32g0xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g0xx.cyclo ./Core/Src/system_stm32g0xx.d ./Core/Src/system_stm32g0xx.o ./Core/Src/system_stm32g0xx.su
 
 .PHONY: clean-Core-2f-Src
 

@@ -45,6 +45,7 @@ Core/Src/app_freertos.o: ../Core/Src/app_freertos.c \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
@@ -94,5 +95,6 @@ Core/Src/app_freertos.o: ../Core/Src/app_freertos.c \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:

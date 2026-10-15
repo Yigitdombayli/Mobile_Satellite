@@ -7,6 +7,9 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
+#include "stm32g0xx_ll_gpio.h"
+#include "stm32g071xx.h"
+#include "stm32g0xx_ll_spi.h"
 
 #ifndef INC_SENSOR_TASK_H_
 #define INC_SENSOR_TASK_H_

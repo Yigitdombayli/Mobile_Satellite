@@ -29,7 +29,10 @@ Core/Src/GpioConf.o: ../Core/Src/GpioConf.c ../Core/Inc/GpioConf.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h \
- ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h
+ ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h
 ../Core/Inc/GpioConf.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:
 ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h:
@@ -62,3 +65,6 @@ Core/Src/GpioConf.o: ../Core/Src/GpioConf.c ../Core/Inc/GpioConf.h \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h:
 ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h:
