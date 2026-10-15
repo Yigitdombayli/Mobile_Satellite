@@ -1,8 +1,6 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h \
- ../Core/Inc/stm32g0xx_hal_conf.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h \
+Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/Services/comm_func.h \
+ ../Core/Inc/Drivers/gpio_conf.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h \
  ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h \
  ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h \
  ../Drivers/CMSIS/Include/core_cm0plus.h \
@@ -11,6 +9,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/CMSIS/Include/cmsis_gcc.h \
  ../Drivers/CMSIS/Include/mpu_armv7.h \
  ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/system_stm32g0xx.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h \
+ ../Core/Inc/stm32g0xx_hal_conf.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc_ex.h \
@@ -28,18 +30,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_system.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_cortex.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h \
+ ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
@@ -49,21 +43,24 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- ../Core/Inc/GpioConf.h \
- ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h \
- ../Core/Inc/sensor_task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Core/Inc/CommunicationTask.h ../Core/Inc/MPU6500.h \
- ../Core/Inc/CommunicationFunction.h ../Core/Inc/GpioConf.h \
- ../Core/Inc/CommunicationFunction.h ../Core/Inc/MPU6500.h
-../Core/Inc/main.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
-../Core/Inc/stm32g0xx_hal_conf.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h:
+ ../Core/Inc/App/comm_task.h ../Core/Inc/Drivers/mpu6500_driver.h \
+ ../Core/Inc/main.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_system.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_cortex.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ ../Core/Inc/App/sensor_task.h
+../Core/Inc/Services/comm_func.h:
+../Core/Inc/Drivers/gpio_conf.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:
 ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h:
 ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h:
 ../Drivers/CMSIS/Include/core_cm0plus.h:
@@ -72,6 +69,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/CMSIS/Include/cmsis_gcc.h:
 ../Drivers/CMSIS/Include/mpu_armv7.h:
 ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/system_stm32g0xx.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
+../Core/Inc/stm32g0xx_hal_conf.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc_ex.h:
@@ -89,18 +90,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_system.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_cortex.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h:
+../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:
-../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -110,16 +103,19 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
-../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
-../Core/Inc/GpioConf.h:
-../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h:
-../Core/Inc/sensor_task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-../Core/Inc/CommunicationTask.h:
-../Core/Inc/MPU6500.h:
-../Core/Inc/CommunicationFunction.h:
-../Core/Inc/GpioConf.h:
-../Core/Inc/CommunicationFunction.h:
-../Core/Inc/MPU6500.h:
+../Core/Inc/App/comm_task.h:
+../Core/Inc/Drivers/mpu6500_driver.h:
+../Core/Inc/main.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_system.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_cortex.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
+../Core/Inc/App/sensor_task.h:

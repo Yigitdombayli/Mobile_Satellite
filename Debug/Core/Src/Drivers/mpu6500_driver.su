@@ -1,0 +1,4 @@
+../Core/Src/Drivers/mpu6500_driver.c:10:9:MPU6500_WHO_AM_I	24	static
+../Core/Src/Drivers/mpu6500_driver.c:24:6:SPI_WriteRegister	16	static
+../Core/Src/Drivers/mpu6500_driver.c:39:6:MPU6500_Power	16	static
+../Core/Src/Drivers/mpu6500_driver.c:55:6:MPU6500_Read_Accel_All	40	static

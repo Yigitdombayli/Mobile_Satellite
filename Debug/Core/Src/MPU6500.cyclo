@@ -1,4 +1,0 @@
-../Core/Src/MPU6500.c:10:9:MPU6500_WHO_AM_I	2
-../Core/Src/MPU6500.c:24:6:SPI_WriteRegister	1
-../Core/Src/MPU6500.c:39:6:MPU6500_Power	1
-../Core/Src/MPU6500.c:55:6:MPU6500_Read_Accel_All	2

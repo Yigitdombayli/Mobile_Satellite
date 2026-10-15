@@ -17,16 +17,16 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <comm_func.h>
+#include <comm_task.h>
+#include <gpio_conf.h>
+#include <mpu6500_driver.h>
 #include "main.h"
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "GpioConf.h"
 #include "sensor_task.h"
-#include "CommunicationTask.h"
-#include "CommunicationFunction.h"
-#include "MPU6500.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
