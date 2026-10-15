@@ -1,6 +1,7 @@
 "./Core/Src/ComminicationFunction.o"
 "./Core/Src/CommunicationTask.o"
 "./Core/Src/GpioConf.o"
+"./Core/Src/Kalman.o"
 "./Core/Src/MPU6500.o"
 "./Core/Src/app_freertos.o"
 "./Core/Src/main.o"
