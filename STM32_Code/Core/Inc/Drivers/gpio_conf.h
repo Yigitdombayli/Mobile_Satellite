@@ -9,6 +9,7 @@
 #include "stm32g0xx_ll_spi.h"
 #include "stm32g0xx_ll_bus.h"
 #include "stm32g0xx_ll_rcc.h"
+#include "stm32g0xx_ll_usart.h"
 
 #ifndef INC_GPIOCONF_H_
 #define INC_GPIOCONF_H_
@@ -21,5 +22,6 @@
 
 void Initialize_GPIO();
 void SPI1_Peripheral_Init();
+void UART_Peripheral_Init(void);
 
 #endif /* INC_GPIOCONF_H_ */

@@ -17,16 +17,17 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <comm_func.h>
-#include <comm_task.h>
-#include <gpio_conf.h>
-#include <mpu6500_driver.h>
 #include "main.h"
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "sensor_task.h"
+#include "comm_func.h"
+#include "kalman_func.h"
+#include "gpio_conf.h"
+#include "comm_task.h"
+#include "mpu6500_driver.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -114,10 +115,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART2_UART_Init();
-  //MX_SPI1_Init();
+  //MX_USART2_UART_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   Initialize_GPIO();
+  UART_Peripheral_Init();
   SPI1_Peripheral_Init();
   SPI_WriteRegister(0x6A, 0x10);
   MPU6500_Power();

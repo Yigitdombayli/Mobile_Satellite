@@ -1,0 +1,11 @@
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:857:22:LL_GPIO_SetOutputPin	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:371:22:LL_SPI_Enable	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:439:22:LL_SPI_SetStandard	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:678:22:LL_SPI_SetRxFIFOThreshold	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h:467:22:LL_APB1_GRP1_EnableClock	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h:921:22:LL_APB2_GRP1_EnableClock	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h:1135:22:LL_IOP_GRP1_EnableClock	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h:638:22:LL_USART_Enable	1
+../STM32_Code/Core/Src/Drivers/gpio_conf.c:13:6:Initialize_GPIO	1
+../STM32_Code/Core/Src/Drivers/gpio_conf.c:53:6:SPI1_Peripheral_Init	1
+../STM32_Code/Core/Src/Drivers/gpio_conf.c:76:6:UART_Peripheral_Init	1

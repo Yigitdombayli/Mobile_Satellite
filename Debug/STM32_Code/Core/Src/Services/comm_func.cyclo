@@ -1,0 +1,10 @@
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:857:22:LL_GPIO_SetOutputPin	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:886:22:LL_GPIO_ResetOutputPin	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:918:26:LL_SPI_IsActiveFlag_RXNE	2
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:929:26:LL_SPI_IsActiveFlag_TXE	2
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:1348:25:LL_SPI_ReceiveData8	1
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:1371:22:LL_SPI_TransmitData8	1
+../STM32_Code/Core/Src/Services/comm_func.c:18:9:Transfer_SPI	3
+../STM32_Code/Core/Src/Services/comm_func.c:32:9:SPI_ReadRegister	2
+../STM32_Code/Core/Src/Services/comm_func.c:50:6:CS_Low	1
+../STM32_Code/Core/Src/Services/comm_func.c:58:6:CS_High	1

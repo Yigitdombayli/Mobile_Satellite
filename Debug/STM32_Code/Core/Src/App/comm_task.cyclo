@@ -1,0 +1,6 @@
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h:3012:26:LL_USART_IsActiveFlag_TC	2
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h:3027:26:LL_USART_IsActiveFlag_TXE_TXFNF	2
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h:4278:22:LL_USART_TransmitData8	1
+../STM32_Code/Core/Src/App/comm_task.c:12:6:UART_SendChar	2
+../STM32_Code/Core/Src/App/comm_task.c:21:6:UART_SendString	3
+../STM32_Code/Core/Src/App/comm_task.c:29:6:vSPI_Task	1
