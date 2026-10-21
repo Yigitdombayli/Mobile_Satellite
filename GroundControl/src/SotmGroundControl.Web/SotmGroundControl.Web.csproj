@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\SotmGroundControl.Application\SotmGroundControl.Application.csproj" />
+    <ProjectReference Include="..\SotmGroundControl.Infrastructure\SotmGroundControl.Infrastructure.csproj" />
+    <ProjectReference Include="..\SotmGroundControl.Core\SotmGroundControl.Core.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>
