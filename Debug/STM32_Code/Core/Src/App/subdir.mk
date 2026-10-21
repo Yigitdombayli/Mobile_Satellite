@@ -5,16 +5,22 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../STM32_Code/Core/Src/App/comm_task.c \
-../STM32_Code/Core/Src/App/sensor_task.c 
+../STM32_Code/Core/Src/App/task_control.c \
+../STM32_Code/Core/Src/App/task_monitor.c \
+../STM32_Code/Core/Src/App/task_telemetry.c \
+../STM32_Code/Core/Src/App/task_uart_rx.c 
 
 OBJS += \
-./STM32_Code/Core/Src/App/comm_task.o \
-./STM32_Code/Core/Src/App/sensor_task.o 
+./STM32_Code/Core/Src/App/task_control.o \
+./STM32_Code/Core/Src/App/task_monitor.o \
+./STM32_Code/Core/Src/App/task_telemetry.o \
+./STM32_Code/Core/Src/App/task_uart_rx.o 
 
 C_DEPS += \
-./STM32_Code/Core/Src/App/comm_task.d \
-./STM32_Code/Core/Src/App/sensor_task.d 
+./STM32_Code/Core/Src/App/task_control.d \
+./STM32_Code/Core/Src/App/task_monitor.d \
+./STM32_Code/Core/Src/App/task_telemetry.d \
+./STM32_Code/Core/Src/App/task_uart_rx.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +30,7 @@ STM32_Code/Core/Src/App/%.o STM32_Code/Core/Src/App/%.su STM32_Code/Core/Src/App
 clean: clean-STM32_Code-2f-Core-2f-Src-2f-App
 
 clean-STM32_Code-2f-Core-2f-Src-2f-App:
-	-$(RM) ./STM32_Code/Core/Src/App/comm_task.cyclo ./STM32_Code/Core/Src/App/comm_task.d ./STM32_Code/Core/Src/App/comm_task.o ./STM32_Code/Core/Src/App/comm_task.su ./STM32_Code/Core/Src/App/sensor_task.cyclo ./STM32_Code/Core/Src/App/sensor_task.d ./STM32_Code/Core/Src/App/sensor_task.o ./STM32_Code/Core/Src/App/sensor_task.su
+	-$(RM) ./STM32_Code/Core/Src/App/task_control.cyclo ./STM32_Code/Core/Src/App/task_control.d ./STM32_Code/Core/Src/App/task_control.o ./STM32_Code/Core/Src/App/task_control.su ./STM32_Code/Core/Src/App/task_monitor.cyclo ./STM32_Code/Core/Src/App/task_monitor.d ./STM32_Code/Core/Src/App/task_monitor.o ./STM32_Code/Core/Src/App/task_monitor.su ./STM32_Code/Core/Src/App/task_telemetry.cyclo ./STM32_Code/Core/Src/App/task_telemetry.d ./STM32_Code/Core/Src/App/task_telemetry.o ./STM32_Code/Core/Src/App/task_telemetry.su ./STM32_Code/Core/Src/App/task_uart_rx.cyclo ./STM32_Code/Core/Src/App/task_uart_rx.d ./STM32_Code/Core/Src/App/task_uart_rx.o ./STM32_Code/Core/Src/App/task_uart_rx.su
 
 .PHONY: clean-STM32_Code-2f-Core-2f-Src-2f-App
 

@@ -48,7 +48,18 @@ STM32_Code/Core/Src/Services/comm_func.o: \
  ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+ ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../STM32_Code/Core/Inc/Services/uart_protocol_defs.h \
+ ../STM32_Code/Core/Inc/Services/protocol_parser.h \
+ ../STM32_Code/Core/Inc/main.h \
+ ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_system.h \
+ ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h \
+ ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_cortex.h \
+ ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h \
+ ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h \
+ ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h \
+ ../STM32_Code/Core/Inc/Services/protocol_parser.h \
+ ../STM32_Code/Core/Inc/Services/uart_protocol_defs.h
 ../STM32_Code/Core/Inc/Services/comm_func.h:
 ../STM32_Code/Core/Inc/Drivers/gpio_conf.h:
 ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:
@@ -98,3 +109,14 @@ STM32_Code/Core/Src/Services/comm_func.o: \
 ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
 ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../STM32_Code/Core/Inc/Services/uart_protocol_defs.h:
+../STM32_Code/Core/Inc/Services/protocol_parser.h:
+../STM32_Code/Core/Inc/main.h:
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_system.h:
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h:
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_cortex.h:
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h:
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h:
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h:
+../STM32_Code/Core/Inc/Services/protocol_parser.h:
+../STM32_Code/Core/Inc/Services/uart_protocol_defs.h:

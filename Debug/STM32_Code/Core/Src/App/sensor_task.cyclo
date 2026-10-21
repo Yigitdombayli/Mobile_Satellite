@@ -1,4 +1,0 @@
-../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:857:22:LL_GPIO_SetOutputPin	1
-../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:886:22:LL_GPIO_ResetOutputPin	1
-../STM32_Code/Core/Src/App/sensor_task.c:11:6:vLed1Task	2
-../STM32_Code/Core/Src/App/sensor_task.c:21:6:vLed2Task	2

@@ -22,11 +22,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "sensor_task.h"
-#include "comm_func.h"
+#include "task_control.h"
+#include "task_monitor.h"
+#include "task_telemetry.h"
+#include "task_uart_rx.h"
 #include "kalman_func.h"
 #include "gpio_conf.h"
-#include "comm_task.h"
 #include "mpu6500_driver.h"
 /* USER CODE END Includes */
 
@@ -56,13 +57,19 @@ const osThreadAttr_t defaultTask_attributes = {
 };
 /* USER CODE BEGIN PV */
 /*********************************   TASK DEFINITION ******************************/
-TaskHandle_t vLed1TaskHandle = NULL;
-TaskHandle_t vLed2TaskHandle = NULL;
-TaskHandle_t vSPI_TaskHandle = NULL;
+TaskHandle_t xHandle_Control = NULL;
+TaskHandle_t xHandle_UART_Rx = NULL;
+TaskHandle_t xHandle_Telemetry = NULL;
+TaskHandle_t xHandle_Monitor = NULL;
+
+/******************************** FUNCTION PROTOTYPE ******************************/
+extern void StartTask_Control(void *argument);
+extern void StartTask_UART_RxParser(void *argument);
+extern void StartTask_Telemetry_Tx(void *argument);
+extern void StartTask_System_Monitor(void *argument);
 
 /*********************************   SEMAPHORE DEFINITION *************************/
-SemaphoreHandle_t xSemLed1;
-SemaphoreHandle_t xSemLed2;
+
 
 /*********************************	PRIVATE FUNCTION ****************************/
 int16_t MPU6500_AccelX;
@@ -123,16 +130,13 @@ int main(void)
   SPI1_Peripheral_Init();
   SPI_WriteRegister(0x6A, 0x10);
   MPU6500_Power();
-xSemLed1 = xSemaphoreCreateBinary();
-xSemLed2 = xSemaphoreCreateBinary();
-if(xSemLed2 != NULL && xSemLed1 != NULL)
-{
-	xSemaphoreGive(xSemLed1);
-	xTaskCreate(vLed1Task, "Task1", configMINIMAL_STACK_SIZE,NULL, 1, &vLed1TaskHandle);
-	xTaskCreate(vLed2Task, "Task1", configMINIMAL_STACK_SIZE,NULL, 1, &vLed2TaskHandle);
-	xTaskCreate(vSPI_Task, "SPI_Task", configMINIMAL_STACK_SIZE,NULL, 3, &vSPI_TaskHandle);
-	vTaskStartScheduler();
-}
+/********************************* TASK CREATE ********************************************/
+  xTaskCreate(StartTask_Control, "TaskControl", 512, NULL, 4, &xHandle_Control);
+  xTaskCreate(StartTask_UART_RxParser, "UART_RxParser", 256, NULL, 3, &xHandle_UART_Rx);
+  xTaskCreate(StartTask_Telemetry_Tx, "Telemetry_Tx", 256, NULL, 2, &xHandle_Telemetry);
+  xTaskCreate(StartTask_System_Monitor, "System_Monitor", 128, NULL, 1, &xHandle_Monitor);
+  vTaskStartScheduler();
+
   /* USER CODE END 2 */
 
   /* Init scheduler */

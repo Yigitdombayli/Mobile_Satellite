@@ -49,7 +49,9 @@ STM32_Code/Core/Src/Drivers/mpu6500_driver.o: \
  ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+ ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../STM32_Code/Core/Inc/Services/uart_protocol_defs.h \
+ ../STM32_Code/Core/Inc/Services/protocol_parser.h
 ../STM32_Code/Core/Inc/Drivers/mpu6500_driver.h:
 ../STM32_Code/Core/Inc/Services/comm_func.h:
 ../STM32_Code/Core/Inc/Drivers/gpio_conf.h:
@@ -100,3 +102,5 @@ STM32_Code/Core/Src/Drivers/mpu6500_driver.o: \
 ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
 ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../STM32_Code/Core/Inc/Services/uart_protocol_defs.h:
+../STM32_Code/Core/Inc/Services/protocol_parser.h:

@@ -4,7 +4,11 @@
 ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:929:26:LL_SPI_IsActiveFlag_TXE	16	static
 ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:1348:25:LL_SPI_ReceiveData8	16	static
 ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:1371:22:LL_SPI_TransmitData8	24	static
-../STM32_Code/Core/Src/Services/comm_func.c:18:9:Transfer_SPI	16	static
-../STM32_Code/Core/Src/Services/comm_func.c:32:9:SPI_ReadRegister	32	static
-../STM32_Code/Core/Src/Services/comm_func.c:50:6:CS_Low	8	static
-../STM32_Code/Core/Src/Services/comm_func.c:58:6:CS_High	8	static
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h:3027:26:LL_USART_IsActiveFlag_TXE_TXFNF	16	static
+../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h:4278:22:LL_USART_TransmitData8	16	static
+../STM32_Code/Core/Src/Services/comm_func.c:20:9:Transfer_SPI	16	static
+../STM32_Code/Core/Src/Services/comm_func.c:34:9:SPI_ReadRegister	32	static
+../STM32_Code/Core/Src/Services/comm_func.c:52:6:CS_Low	8	static
+../STM32_Code/Core/Src/Services/comm_func.c:60:6:CS_High	8	static
+../STM32_Code/Core/Src/Services/comm_func.c:72:10:Calculate_CRC16	24	static
+../STM32_Code/Core/Src/Services/comm_func.c:98:6:Send_Telemetry_Frame	72	static

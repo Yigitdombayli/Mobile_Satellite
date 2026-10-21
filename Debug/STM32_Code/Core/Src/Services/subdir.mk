@@ -6,15 +6,21 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../STM32_Code/Core/Src/Services/comm_func.c \
-../STM32_Code/Core/Src/Services/kalman_func.c 
+../STM32_Code/Core/Src/Services/kalman_func.c \
+../STM32_Code/Core/Src/Services/pid_controller.c \
+../STM32_Code/Core/Src/Services/protocol_parser.c 
 
 OBJS += \
 ./STM32_Code/Core/Src/Services/comm_func.o \
-./STM32_Code/Core/Src/Services/kalman_func.o 
+./STM32_Code/Core/Src/Services/kalman_func.o \
+./STM32_Code/Core/Src/Services/pid_controller.o \
+./STM32_Code/Core/Src/Services/protocol_parser.o 
 
 C_DEPS += \
 ./STM32_Code/Core/Src/Services/comm_func.d \
-./STM32_Code/Core/Src/Services/kalman_func.d 
+./STM32_Code/Core/Src/Services/kalman_func.d \
+./STM32_Code/Core/Src/Services/pid_controller.d \
+./STM32_Code/Core/Src/Services/protocol_parser.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +30,7 @@ STM32_Code/Core/Src/Services/%.o STM32_Code/Core/Src/Services/%.su STM32_Code/Co
 clean: clean-STM32_Code-2f-Core-2f-Src-2f-Services
 
 clean-STM32_Code-2f-Core-2f-Src-2f-Services:
-	-$(RM) ./STM32_Code/Core/Src/Services/comm_func.cyclo ./STM32_Code/Core/Src/Services/comm_func.d ./STM32_Code/Core/Src/Services/comm_func.o ./STM32_Code/Core/Src/Services/comm_func.su ./STM32_Code/Core/Src/Services/kalman_func.cyclo ./STM32_Code/Core/Src/Services/kalman_func.d ./STM32_Code/Core/Src/Services/kalman_func.o ./STM32_Code/Core/Src/Services/kalman_func.su
+	-$(RM) ./STM32_Code/Core/Src/Services/comm_func.cyclo ./STM32_Code/Core/Src/Services/comm_func.d ./STM32_Code/Core/Src/Services/comm_func.o ./STM32_Code/Core/Src/Services/comm_func.su ./STM32_Code/Core/Src/Services/kalman_func.cyclo ./STM32_Code/Core/Src/Services/kalman_func.d ./STM32_Code/Core/Src/Services/kalman_func.o ./STM32_Code/Core/Src/Services/kalman_func.su ./STM32_Code/Core/Src/Services/pid_controller.cyclo ./STM32_Code/Core/Src/Services/pid_controller.d ./STM32_Code/Core/Src/Services/pid_controller.o ./STM32_Code/Core/Src/Services/pid_controller.su ./STM32_Code/Core/Src/Services/protocol_parser.cyclo ./STM32_Code/Core/Src/Services/protocol_parser.d ./STM32_Code/Core/Src/Services/protocol_parser.o ./STM32_Code/Core/Src/Services/protocol_parser.su
 
 .PHONY: clean-STM32_Code-2f-Core-2f-Src-2f-Services
 
