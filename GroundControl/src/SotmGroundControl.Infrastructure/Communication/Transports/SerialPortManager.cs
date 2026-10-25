@@ -67,16 +67,18 @@ namespace SotmGroundControl.Infrastructure.Communication.Transports
             byte[] buffer = new byte[bytesToRead];
             _serialPort.Read(buffer, 0, bytesToRead);
 
-            // Gelen ham byte'ları havuzumuza atıyoruz
-            _frameParser.AddBytes(buffer);
+            // GEÇİCİ DEBUG: ham byte'ları hex olarak yazdır
+            Console.WriteLine($"[RAW {bytesToRead}] {BitConverter.ToString(buffer)}");
 
-            // Havuzda tam bir paket oluşmuşsa çıkarıp işliyoruz. 
-            // Aynı anda birden fazla paket geldiyse while döngüsü hepsini sırayla çözer.
-            UartFrame? frame;
-            while ((frame = _frameParser.TryParseFrame()) != null)
+            lock (_frameParser)
             {
-                // Yakalanan hatasız paketi Web katmanındaki servislere fırlatıyoruz
-                OnFrameReceived?.Invoke(frame);
+                _frameParser.AddBytes(buffer);
+
+                UartFrame? frame;
+                while ((frame = _frameParser.TryParseFrame()) != null)
+                {
+                    OnFrameReceived?.Invoke(frame);
+                }
             }
         }
 

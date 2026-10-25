@@ -25,61 +25,60 @@ namespace SotmGroundControl.Protocol.Framing
         {
             while (_buffer.Count > 0)
             {
-                // 1. Start Byte (0xAA) ara
                 int startIndex = _buffer.IndexOf(ProtocolConstants.StartByte);
 
                 if (startIndex == -1)
                 {
-                    _buffer.Clear(); // Başlangıç byte'ı yoksa hepsi çöptür, havuzu temizle
+                   // Console.WriteLine("[PARSER] Start byte (0xAA) yok, buffer temizlendi.");
+                    _buffer.Clear();
                     return null;
                 }
 
-                // Eğer Start Byte'tan önce çöp veriler (noise) varsa, onları silip Start Byte'ı başa al
                 if (startIndex > 0)
                 {
+                   // Console.WriteLine($"[PARSER] {startIndex} byte çöp atıldı.");
                     _buffer.RemoveRange(0, startIndex);
                 }
 
-                // Minimum paket boyutu: Start(1) + Cmd(1) + Len(1) + Payload(0) + CRC(2) + Stop(1) = 6 byte
                 if (_buffer.Count < 6)
-                    return null; // Paket henüz tamamlanmadı, yeni verilerin gelmesini bekle
+                    return null;
 
                 byte commandId = _buffer[1];
                 byte payloadLength = _buffer[2];
 
-                // Güvenlik: Şartnamedeki maksimum limiti aşıyorsa hatalı veridir
                 if (payloadLength > ProtocolConstants.MaxPayloadSize)
                 {
-                    _buffer.RemoveAt(0); // Baştaki hatalı Start Byte'ı atıp bir sonraki 0xAA'yı ara
+                  //  Console.WriteLine($"[PARSER] RED: payloadLength={payloadLength} > Max={ProtocolConstants.MaxPayloadSize}");
+                    _buffer.RemoveAt(0);
                     continue;
                 }
 
                 int expectedFrameLength = 1 + 1 + 1 + payloadLength + 2 + 1;
 
                 if (_buffer.Count < expectedFrameLength)
-                    return null; // Paket boyutu belli oldu ama henüz tüm byte'lar ulaşmadı, bekle
+                    return null;
 
-                // 2. Stop Byte (0x55) Kontrolü
                 if (_buffer[expectedFrameLength - 1] != ProtocolConstants.StopByte)
                 {
-                    _buffer.RemoveAt(0); // Stop byte yanlış, demek ki yolda kayma oldu
+                  //  Console.WriteLine($"[PARSER] RED: Stop byte yanlış. Beklenen 0x55, gelen 0x{_buffer[expectedFrameLength - 1]:X2}, len={payloadLength}");
+                    _buffer.RemoveAt(0);
                     continue;
                 }
 
-                // 3. CRC Kontrolü
-                // STM32 tarafı Little-Endian çalışır, CRC'nin önce düşük, sonra yüksek byte'ı gelir
                 ushort receivedCrc = (ushort)(_buffer[3 + payloadLength] | (_buffer[4 + payloadLength] << 8));
+                byte[] snapshot = _buffer.ToArray();
 
-                // Kendi CRC'mizi hesaplıyoruz (Sadece Cmd, Len ve Payload kısımları hesaplamaya girer)
-                ushort calculatedCrc = Crc16Calculator.ComputeChecksum(_buffer.ToArray(), 1, 2 + payloadLength);
+                ushort calculatedCrc = Crc16Calculator.ComputeChecksum(snapshot, 1, 2 + payloadLength);
 
                 if (receivedCrc != calculatedCrc)
                 {
-                    _buffer.RemoveAt(0); // Veri yolda elektriksel gürültüden bozulmuş, çöpe at
+                    // Arkadaşın start byte'ı da CRC'ye katmış olabilir, onu da dene
+                    ushort altCrc = Crc16Calculator.ComputeChecksum(snapshot, 0, 3 + payloadLength);
+                 //   Console.WriteLine($"[PARSER] RED: CRC uyuşmuyor. Gelen=0x{receivedCrc:X4}, Hesaplanan=0x{calculatedCrc:X4}, StartByte'lı hesap=0x{altCrc:X4}");
+                    _buffer.RemoveAt(0);
                     continue;
                 }
 
-                // 4. Bütün testleri geçtiyse paketi oluştur!
                 var frame = new UartFrame
                 {
                     StartByte = _buffer[0],
@@ -90,16 +89,14 @@ namespace SotmGroundControl.Protocol.Framing
                     StopByte = _buffer[expectedFrameLength - 1]
                 };
 
-                // Havuzdaki asıl veriyi paketin Payload kısmına kopyala
                 _buffer.CopyTo(3, frame.Payload, 0, payloadLength);
-
-                // İşlenen paketi havuzdan sil ki bir sonraki pakete geçebilelim
                 _buffer.RemoveRange(0, expectedFrameLength);
 
+              //  Console.WriteLine($"[PARSER] OK: cmd=0x{commandId:X2}, len={payloadLength}");
                 return frame;
             }
 
-            return null; // İşlenecek tam paket yok
+            return null;
         }
     }
 }

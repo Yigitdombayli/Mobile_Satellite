@@ -36,7 +36,11 @@ namespace SotmGroundControl.Web.BackgroundServices
             // 1. Uygulama başlarken seri portu açıyoruz. (COM port adını kendi cihazına göre değiştir)
             try
             {
-                _serialService.Connect("COM3", 115200);
+                _serialService.OnFrameReceived += async (frame) =>
+                {
+                    await ProcessReceivedFrameAsync(frame);
+                };
+                _serialService.Connect("COM4", 9600);
                 Console.WriteLine("Seri port başarıyla açıldı ve dinleniyor...");
             }
             catch (Exception ex)
@@ -45,11 +49,11 @@ namespace SotmGroundControl.Web.BackgroundServices
             }
 
             // 2. Hatasız bir paket yakalandığında tetiklenen olayı (Event) dinliyoruz
-            _serialService.OnFrameReceived += async (frame) =>
+          /*  _serialService.OnFrameReceived += async (frame) =>
             {
                 await ProcessReceivedFrameAsync(frame);
             };
-
+          */
             // 3. Servis kapanana kadar arka planda açık tutuyoruz
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -62,14 +66,18 @@ namespace SotmGroundControl.Web.BackgroundServices
 
         private async Task ProcessReceivedFrameAsync(UartFrame frame)
         {
-            // Eğer gelen paket STM32'nin telemetri cevabıysa (0x21)
-            if (frame.CommandId == (byte)CommandId.ResTelemetry)
+            try
             {
-                // Arkadaşının gönderdiği ham byte'ları C# nesnesine dönüştürüyoruz
-                var telemetryData = MessageDecoder.DecodePayload<TelemetryData>(frame.Payload);
-
-                // SignalR ile tüm bağlı kullanıcılara (Web arayüzüne) anlık veriyi fırlatıyoruz
-                await _hubContext.Clients.All.SendAsync("ReceiveTelemetry", telemetryData);
+                if (frame.CommandId == (byte)CommandId.ResTelemetry)
+                {
+                    var telemetryData = MessageDecoder.DecodePayload<TelemetryData>(frame.Payload);
+                    Console.WriteLine($"[TELEMETRI] Roll={telemetryData.CurrentRoll:F2} Pitch={telemetryData.CurrentPitch:F2}");
+                    await _hubContext.Clients.All.SendAsync("ReceiveTelemetry", telemetryData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[HATA] Frame işlenemedi: {ex.Message}");
             }
         }
 

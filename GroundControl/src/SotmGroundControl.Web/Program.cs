@@ -9,8 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // 1. MVC (Arayüz) ve SignalR (Canlý Veri) servislerini ekliyoruz
 builder.Services.AddControllersWithViews();
-builder.Services.AddSignalR();
-
+builder.Services.AddSignalR()
+    .AddJsonProtocol(options =>
+    {
+        options.PayloadSerializerOptions.IncludeFields = true;
+    });
 // 2. DONANIM VE ARKA PLAN SERVÝS KAYITLARI
 // Seri portu uygulamada tek bir nesne olarak (Singleton) ayaða kaldýrýyoruz.
 builder.Services.AddSingleton<ISerialCommunicationService, SerialPortManager>();
