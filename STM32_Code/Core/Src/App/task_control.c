@@ -10,6 +10,6 @@
 
 void StartTask_Control(void *argument){
 	for(; ;){
-
+		vTaskDelay(pdMS_TO_TICKS(1000));
 	}
 }

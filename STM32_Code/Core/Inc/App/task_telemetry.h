@@ -10,6 +10,9 @@
 
 #include "FreeRTOS.h"
 #include "task.h"
+#include "mpu6500_driver.h"
+#include "kalman_func.h"
+#include <math.h>
 
 void StartTask_Telemetry_Tx(void *argument);
 

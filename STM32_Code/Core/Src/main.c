@@ -72,9 +72,7 @@ extern void StartTask_System_Monitor(void *argument);
 
 
 /*********************************	PRIVATE FUNCTION ****************************/
-int16_t MPU6500_AccelX;
-int16_t MPU6500_AccelY;
-int16_t MPU6500_AccelZ;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -131,10 +129,10 @@ int main(void)
   SPI_WriteRegister(0x6A, 0x10);
   MPU6500_Power();
 /********************************* TASK CREATE ********************************************/
-  xTaskCreate(StartTask_Control, "TaskControl", 512, NULL, 4, &xHandle_Control);
-  xTaskCreate(StartTask_UART_RxParser, "UART_RxParser", 256, NULL, 3, &xHandle_UART_Rx);
+  //xTaskCreate(StartTask_Control, "TaskControl", 512, NULL, 4, &xHandle_Control);
+  //xTaskCreate(StartTask_UART_RxParser, "UART_RxParser", 256, NULL, 3, &xHandle_UART_Rx);
   xTaskCreate(StartTask_Telemetry_Tx, "Telemetry_Tx", 256, NULL, 2, &xHandle_Telemetry);
-  xTaskCreate(StartTask_System_Monitor, "System_Monitor", 128, NULL, 1, &xHandle_Monitor);
+ // xTaskCreate(StartTask_System_Monitor, "System_Monitor", 128, NULL, 1, &xHandle_Monitor);
   vTaskStartScheduler();
 
   /* USER CODE END 2 */

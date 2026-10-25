@@ -54,17 +54,17 @@ STM32_Code/Core/Src/main.o: ../STM32_Code/Core/Src/main.c \
  ../STM32_Code/Core/Inc/App/task_control.h \
  ../STM32_Code/Core/Inc/App/task_monitor.h \
  ../STM32_Code/Core/Inc/App/task_telemetry.h \
- ../STM32_Code/Core/Inc/App/task_uart_rx.h \
- ../STM32_Code/Core/Inc/Services/kalman_func.h \
- ../STM32_Code/Core/Inc/Drivers/gpio_conf.h \
- ../STM32_Code/Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h \
  ../STM32_Code/Core/Inc/Drivers/mpu6500_driver.h \
  ../STM32_Code/Core/Inc/Services/comm_func.h \
+ ../STM32_Code/Core/Inc/Drivers/gpio_conf.h \
+ ../STM32_Code/Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h \
  ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../STM32_Code/Core/Inc/Services/uart_protocol_defs.h \
- ../STM32_Code/Core/Inc/Services/protocol_parser.h
+ ../STM32_Code/Core/Inc/Services/protocol_parser.h \
+ ../STM32_Code/Core/Inc/Services/kalman_func.h \
+ ../STM32_Code/Core/Inc/App/task_uart_rx.h
 ../STM32_Code/Core/Inc/main.h:
 ../STM32_Code/Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
 ../STM32_Code/Core/Inc/stm32g0xx_hal_conf.h:
@@ -120,14 +120,14 @@ STM32_Code/Core/Src/main.o: ../STM32_Code/Core/Src/main.c \
 ../STM32_Code/Core/Inc/App/task_control.h:
 ../STM32_Code/Core/Inc/App/task_monitor.h:
 ../STM32_Code/Core/Inc/App/task_telemetry.h:
-../STM32_Code/Core/Inc/App/task_uart_rx.h:
-../STM32_Code/Core/Inc/Services/kalman_func.h:
-../STM32_Code/Core/Inc/Drivers/gpio_conf.h:
-../STM32_Code/Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h:
 ../STM32_Code/Core/Inc/Drivers/mpu6500_driver.h:
 ../STM32_Code/Core/Inc/Services/comm_func.h:
+../STM32_Code/Core/Inc/Drivers/gpio_conf.h:
+../STM32_Code/Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h:
 ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
 ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../STM32_Code/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../STM32_Code/Core/Inc/Services/uart_protocol_defs.h:
 ../STM32_Code/Core/Inc/Services/protocol_parser.h:
+../STM32_Code/Core/Inc/Services/kalman_func.h:
+../STM32_Code/Core/Inc/App/task_uart_rx.h:

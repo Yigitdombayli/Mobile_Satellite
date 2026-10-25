@@ -9,6 +9,6 @@
 
 void StartTask_System_Monitor(void *argument){
 	for(;;){
-
+		vTaskDelay(pdMS_TO_TICKS(1000));
 	}
 }

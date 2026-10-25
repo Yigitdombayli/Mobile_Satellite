@@ -8,6 +8,6 @@
 
 void StartTask_UART_RxParser(void *argument){
 	for(;;){
-
+		vTaskDelay(pdMS_TO_TICKS(1000));
 	}
 }
