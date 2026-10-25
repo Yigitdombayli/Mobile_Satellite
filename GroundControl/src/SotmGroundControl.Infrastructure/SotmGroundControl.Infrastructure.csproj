@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SotmGroundControl.Application\SotmGroundControl.Application.csproj" />
     <ProjectReference Include="..\SotmGroundControl.Protocol\SotmGroundControl.Protocol.csproj" />
     <ProjectReference Include="..\SotmGroundControl.Core\SotmGroundControl.Core.csproj" />

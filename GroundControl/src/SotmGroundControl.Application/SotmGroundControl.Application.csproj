@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SotmGroundControl.Core\SotmGroundControl.Core.csproj" />
+    <ProjectReference Include="..\SotmGroundControl.Protocol\SotmGroundControl.Protocol.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

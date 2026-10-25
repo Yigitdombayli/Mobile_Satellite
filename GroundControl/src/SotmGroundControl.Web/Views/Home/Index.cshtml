@@ -1,8 +1,60 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Telemetri Test Panosu";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mt-4">
+    <h2>SoTM Terminali - Canlı Telemetri Ekranı</h2>
+    <hr />
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header border-light">STM32 Sensör Verileri</div>
+                <div class="card-body">
+                    <h5 class="card-title text-warning">Sistem Modu: <span id="valMode">-</span></h5>
+                    <p class="card-text text-start ms-4 mt-3" style="font-size: 1.2rem;">
+                        <strong>Azimuth:</strong> <span id="valAzimuth">-</span>° <br />
+                        <strong>Elevasyon:</strong> <span id="valElevation">-</span>° <br />
+                        <strong>Roll (Platform):</strong> <span id="valRoll">-</span>° <br />
+                        <strong>Pitch (Platform):</strong> <span id="valPitch">-</span>° <br />
+                        <strong class="text-info">Durum Kodu:</strong> <span id="valStatus">-</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <!-- SignalR kütüphanesini hızlı test için CDN üzerinden alıyoruz -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+    <script>
+        // 1. Program.cs'de belirlediğimiz köprüye bağlanıyoruz
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/telemetryHub")
+            .build();
+
+        // 2. Arka plan servisinden (BackgroundService) fırlatılan veriyi yakalıyoruz
+        connection.on("ReceiveTelemetry", function (data) {
+            console.log("STM32'den Gelen Paket:", data);
+
+            // Mod Enum değerini (0,1,2) yazıya çeviriyoruz
+            let modeStr = data.currentMode === 0 ? "Standby" : (data.currentMode === 1 ? "Manual" : "Auto");
+
+            // HTML elementlerine basıyoruz
+            document.getElementById("valMode").innerText = modeStr;
+            document.getElementById("valAzimuth").innerText = data.currentAzimuth.toFixed(2);
+            document.getElementById("valElevation").innerText = data.currentElevation.toFixed(2);
+            document.getElementById("valRoll").innerText = data.currentRoll.toFixed(2);
+            document.getElementById("valPitch").innerText = data.currentPitch.toFixed(2);
+            document.getElementById("valStatus").innerText = data.systemStatus === 0 ? "Normal (0x00)" : "Hata Kodu: " + data.systemStatus;
+        });
+
+        // 3. Bağlantıyı aktif ediyoruz
+        connection.start().then(function () {
+            console.log("SignalR bağlantısı kuruldu. UART dinleniyor...");
+        }).catch(function (err) {
+            return console.error("SignalR Hatası:", err.toString());
+        });
+    </script>
+}
